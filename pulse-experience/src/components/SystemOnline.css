@@ -1,0 +1,119 @@
+.online {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: var(--bg);
+  padding: 24px;
+  text-align: center;
+}
+
+.online__status {
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  color: var(--green);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: online-in 0.6s ease-out 0.05s forwards;
+}
+
+.online__status::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 10px;
+  vertical-align: middle;
+  box-shadow: 0 0 8px var(--green);
+}
+
+.online__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(40px, 10vw, 76px);
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin: 0;
+  opacity: 0;
+  text-shadow: 0 0 24px var(--cyan-dim);
+  animation: online-in 0.7s ease-out 0.25s forwards;
+}
+
+.online__tagline {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--white-dim);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: online-in 0.6s ease-out 0.5s forwards;
+}
+
+@keyframes online-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.online__actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: online-in 0.6s ease-out 0.8s forwards;
+}
+
+.online__enter {
+  border: 1px solid var(--cyan);
+  color: var(--bg);
+  background: var(--cyan);
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 2px;
+  font-weight: 600;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.online__enter:hover,
+.online__enter:focus-visible {
+  box-shadow: 0 0 28px var(--cyan-dim);
+  transform: translateY(-1px);
+}
+
+.online__replay {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--white-dim);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.online__replay:hover,
+.online__replay:focus-visible {
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .online__status,
+  .online__title,
+  .online__tagline,
+  .online__actions {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
